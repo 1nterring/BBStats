@@ -11,3 +11,4 @@ public class WapApplication {
     }
 
 }
+// Komentarz do gita

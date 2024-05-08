@@ -10,22 +10,21 @@ import javax.persistence.*;
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long Id;
+    private Long id;
+    
     @ManyToOne
     @JoinColumn(name= "manager_id")
-    @OneToOne(mappedBy = "contract", cascade = CascadeType.ALL)
-    private Contract contract;
-    public Contract getContract() {
-        return contract;
-    }
+    private Contract managerContract;
+    
+    @OneToOne
+    @JoinColumn(name = "player_id")
+    private Player player;
     public Long getId() {
-        return Id;
+        return id;
     }
-    public void setContract(Contract contract) {
-        this.contract = contract;
-    }
+
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
 }

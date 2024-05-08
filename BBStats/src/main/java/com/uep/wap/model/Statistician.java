@@ -5,6 +5,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.OneToMany;
+
+import java.util.List;
+
 import javax.persistence.*;
 
 @Entity
@@ -15,7 +18,7 @@ public class Statistician {
     private String firstName;
     private String lastName;
     @OneToMany(mappedBy = "statistician", cascade = CascadeType.ALL)
-    private Statistician statistician;
+    private List<Data> dataList;
     public String getFirstName() {
         return firstName;
     }
@@ -25,9 +28,6 @@ public class Statistician {
     public String getLastName() {
         return lastName;
     }
-    public Statistician getStatistician() {
-        return statistician;
-    }
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -36,8 +36,5 @@ public class Statistician {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-    public void setStatistician(Statistician statistician) {
-        this.statistician = statistician;
     }
 }

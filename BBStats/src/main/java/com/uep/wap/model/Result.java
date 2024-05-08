@@ -15,7 +15,7 @@ public class Result {
     private String winner;
     private Integer final_score;
     @ManyToOne
-    @JoinColumn(name = "table_id")
+    @JoinColumn(name = "tableOfMatches_id")
     @OneToOne(mappedBy = "result", cascade = CascadeType.ALL)
     private Result result;
     public Integer getFinal_score() {

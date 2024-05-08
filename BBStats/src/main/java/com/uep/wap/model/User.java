@@ -15,19 +15,18 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     @OneToOne
-    @JoinColumn()
-    private User user;
-    private WapApplication wapApplication;
+    @JoinColumn(name = "data_id")
+    private Data data;
+    public Data getData() {
+        return data;
+    }
+    public void setData(Data data) {
+        this.data = data;
+    }
     public Long getId() {
         return Id;
     }
     public void setId(Long id) {
         Id = id;
-    }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
     }
 }

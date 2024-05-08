@@ -16,18 +16,22 @@ public class Game {
     private Long Id;
     private Timestamp date;
     private String opponent;
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "result_id")
+    private Game result;
+    
     @ManyToOne
     @JoinColumn(name = "schedule_id")
+    private Game schedule;
+    
+    @ManyToOne
     @JoinColumn(name = "team_id")
-    private Game game;
+    private Team team;
+
     public Timestamp getDate() {
         return date;
     }
-    public Game getGame() {
-        return game;
-    }
+
     public Long getId() {
         return Id;
     }
@@ -36,9 +40,6 @@ public class Game {
     }
     public void setDate(Timestamp date) {
         this.date = date;
-    }
-    public void setGame(Game game) {
-        this.game = game;
     }
     public void setId(Long id) {
         Id = id;

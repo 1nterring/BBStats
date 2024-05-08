@@ -15,8 +15,8 @@ public class Administrator{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
     @OneToOne
-    @JoinColumn()
-    private WapApplication wapApplication;
+    @JoinColumn(name="data_id")
+    private Data data;
 
     public Long getId() {
         return Id;
@@ -24,13 +24,5 @@ public class Administrator{
 
     public void setId(Long id) {
         Id = id;
-    }
-
-    public WapApplication getWapApplication() {
-        return wapApplication;
-    }
-
-    public void setWapApplication(WapApplication wapApplication) {
-        this.wapApplication = wapApplication;
     }
 }

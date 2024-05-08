@@ -16,8 +16,8 @@ public class PlayerService {
 
     public void addPlayer(PlayerDTO playerDTO) {
         Player player = new Player();
-        //player.setName(studentDTO.getName());
-        //player.setPoints(studentDTO.getPoints());
+        //player.setName(playerDTO.getName());
+        //player.setPoints(playerDTO.getPoints());
         playerRepository.save(player);
         System.out.println("NEW PLAYER HAS COME TO MARKET!");
     }

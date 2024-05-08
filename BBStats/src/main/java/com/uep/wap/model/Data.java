@@ -14,17 +14,11 @@ public class Data {
     private Long Id;
     @ManyToOne
     @JoinColumn(name = "statistican_id")
-    private Data Data;
+    private Statistician statistician;
     @OneToMany(mappedBy = "data", cascade = CascadeType.ALL)
 
-    public Data getData() {
-        return Data;
-    }
     public Long getId() {
         return Id;
-    }
-    public void setData(Data data) {
-        Data = data;
     }
     public void setId(Long id) {
         Id = id;

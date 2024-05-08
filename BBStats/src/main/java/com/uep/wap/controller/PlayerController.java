@@ -26,8 +26,8 @@ public class PlayerController {
         return playerService.getAllPlayers();
     }
 
-    @PostMapping(path = "/players")
-    public String addStudents(@RequestBody PlayerDTO playerDTO){
+    @PostMapping(path = "/playerAdd")
+    public String addPlayer(@RequestBody PlayerDTO playerDTO){
         playerService.addPlayer(playerDTO);
         return "Inserted";
     }

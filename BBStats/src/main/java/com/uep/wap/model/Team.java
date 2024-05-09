@@ -11,6 +11,7 @@ public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
+    private String name;
     @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
     @ManyToOne
     @JoinColumn(name = "data_id")
@@ -27,5 +28,13 @@ public class Team {
     }
     public void setTeam(Team team) {
         this.team = team;
+    }
+
+        public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

@@ -1,5 +1,7 @@
 package com.uep.wap.dto;
 
+import java.sql.Timestamp;
+
 public class PlayerDTO {
 
         public String getFirstName() {

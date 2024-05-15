@@ -1,9 +1,10 @@
 package com.uep.wap.repository;
-
-import com.uep.wap.model.Student;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import com.uep.wap.model.Contract;
+
 @Repository
-public interface StudentRepository extends CrudRepository<Student, Integer> {
+public interface ContractRepository extends CrudRepository<Contract,Integer> {
+
 }

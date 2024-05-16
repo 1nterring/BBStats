@@ -16,11 +16,6 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
-
     @GetMapping(path = "/administrators")
     public Iterable<Administrator> getAllAdministrators(){
         return administratorService.getAllAdministrators();

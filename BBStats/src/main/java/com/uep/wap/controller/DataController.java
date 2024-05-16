@@ -3,27 +3,27 @@ package com.uep.wap.controller;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.DataControllerDTO;
-import com.uep.wap.model.DataController;
+import com.uep.wap.model.Data;
 import com.uep.wap.service.DataControllerService;
 
 @RestController
 @RequestMapping(path = "/api")
 public class DataController {
 
-    private final DataControllerService dataControllerService;
+    private final DataService dataService;
 
-    public DataController(DataControllerService dataControllerService) {
-        this.dataControllerService = dataControllerService;
+    public Data(DataService dataService) {
+        this.dataService = dataService;
     }
 
-    @GetMapping(path = "/dataControllers")
-    public Iterable<DataController> getAllDataControllers(){
-        return dataControllerService.getAllDataControllers();
+    @GetMapping(path = "/data")
+    public Iterable<Data> getAllData(){
+        return dataService.getAllData();
     }
 
-    @PostMapping(path = "/dataControllerAdd")
-    public String addDataController(@RequestBody DataControllerDTO dataControllerDTO){
-        dataControllerService.addDataController(dataControllerDTO);
+    @PostMapping(path = "/dataAdd")
+    public String addData(@RequestBody DataDTO dataDTO){
+        dataService.addData(dataDTO);
         return "Inserted";
     }
 }

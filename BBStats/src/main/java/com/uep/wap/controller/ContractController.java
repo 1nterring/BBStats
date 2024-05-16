@@ -16,11 +16,6 @@ public class ContractController {
         this.contractService = contractService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
-
     @GetMapping(path = "/contracts")
     public Iterable<Contract> getAllContracts(){
         return contractService.getAllContracts();

@@ -15,11 +15,6 @@ public class CoachController {
         this.coachService = coachService;
     }
 
-    @GetMapping(path = "/hello")
-    public String sayHello(){
-        return "Hello!";
-    }
-
     @GetMapping(path = "/coaches")
     public Iterable<Coach> getAllCoaches(){
         return coachService.getAllCoaches();

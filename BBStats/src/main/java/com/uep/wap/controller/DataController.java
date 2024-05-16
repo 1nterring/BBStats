@@ -2,9 +2,9 @@ package com.uep.wap.controller;
 
 import org.springframework.web.bind.annotation.*;
 
-import com.uep.wap.dto.DataControllerDTO;
+import com.uep.wap.dto.DataDTO;
 import com.uep.wap.model.Data;
-import com.uep.wap.service.DataControllerService;
+import com.uep.wap.service.DataService;
 
 @RestController
 @RequestMapping(path = "/api")

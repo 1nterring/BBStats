@@ -5,6 +5,9 @@ import org.springframework.web.bind.annotation.*;
 import com.uep.wap.dto.TeamDTO;
 import com.uep.wap.model.Team;
 import com.uep.wap.service.TeamService;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping(path = "/api")

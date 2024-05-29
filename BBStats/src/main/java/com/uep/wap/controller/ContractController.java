@@ -16,7 +16,7 @@ public class ContractController {
         this.contractService = contractService;
     }
 
-    @GetMapping(path = "/contracts")
+    /*@GetMapping(path = "/contracts")
     public Iterable<Contract> getAllContracts(){
         return contractService.getAllContracts();
     }
@@ -25,6 +25,6 @@ public class ContractController {
     public String addContract(@RequestBody ContractDTO contractDTO){
         contractService.addContract(contractDTO);
         return "Inserted";
-    }
+    }*/
 
 }

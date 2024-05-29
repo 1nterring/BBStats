@@ -1,18 +1,20 @@
 package com.uep.wap.dto;
 
 import com.uep.wap.model.Coach;
+import com.uep.wap.model.Team;
 
 import java.security.Timestamp;
 
 public class CoachDTO {
     private String firstName;
     private String lastName;
-    private Timestamp dateOfBirth;
+    private java.sql.Timestamp dateOfBirth;
+    private Team team;
 
-    public Timestamp getDateOfBirth() {
+    public java.sql.Timestamp getDateOfBirth() {
         return dateOfBirth;
     }
-    public void setDateOfBirth(Timestamp dateOfBirth) {
+    public void setDateOfBirth(java.sql.Timestamp dateOfBirth) {
         this.dateOfBirth = dateOfBirth;
     }
     public void setFirstName(String firstName) {
@@ -26,6 +28,13 @@ public class CoachDTO {
     }
     public String getLastName() {
         return lastName;
+    }
+        public Team getTeam() {
+        return team;
+    }
+
+    public void setTeam(Team team) {
+        this.team = team;
     }
 
 }

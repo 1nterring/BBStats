@@ -13,15 +13,17 @@ public class CoachService {
     @Autowired
     private CoachRepository coachRepository;
     
-    public void addManager(CoachDTO coachDTO) {
+    public void addCoach(CoachDTO coachDTO) {
         Coach coach = new Coach();
         coach.setFirstName(coachDTO.getFirstName());
         coach.setLastName(coachDTO.getLastName());
+        coach.setTeam(coachDTO.getTeam());
+        coach.setDateOfBirth(coachDTO.getDateOfBirth());
         coachRepository.save(coach);
         System.out.println("New Coach");
     }
 
-    public Iterable<Coach> getAllManagers() {
+    public Iterable<Coach> getAllCoaches() {
         return coachRepository.findAll();
     }    
 

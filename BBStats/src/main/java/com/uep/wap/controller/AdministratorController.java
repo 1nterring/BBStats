@@ -16,7 +16,7 @@ public class AdministratorController {
         this.administratorService = administratorService;
     }
 
-    @GetMapping(path = "/administrators")
+   /* @GetMapping(path = "/administrators")
     public Iterable<Administrator> getAllAdministrators(){
         return administratorService.getAllAdministrators();
     }
@@ -25,5 +25,5 @@ public class AdministratorController {
     public String addAdministrator(@RequestBody AdministratorDTO administratorDTO){
         administratorService.addAdministrator(administratorDTO);
         return "Inserted";
-    }
+    }*/
 }

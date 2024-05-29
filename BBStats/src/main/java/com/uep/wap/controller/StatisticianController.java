@@ -16,7 +16,7 @@ public class StatisticianController {
         this.statisticianService = statisticianService;
     }
 
-    @GetMapping(path = "/statisticians")
+    /*@GetMapping(path = "/statisticians")
     public Iterable<Statistican> getaAllStatisticians(){
         return statisticianService.getaAllStatisticians();
     }
@@ -25,6 +25,6 @@ public class StatisticianController {
     public String addStatistician(@RequestBody StatisticianDTO statisticianDTO){
         statisticianService.addStatistician(statisticianDTO);
         return "Inserted";
-    }
+    }*/
 
 }

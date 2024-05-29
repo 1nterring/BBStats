@@ -16,7 +16,7 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
-    @GetMapping(path = "/schedules")
+   /* @GetMapping(path = "/schedules")
     public Iterable<Schedule> getAllSchedules(){
         return scheduleService.getAllSchedules();
     }
@@ -26,5 +26,5 @@ public class ScheduleController {
         scheduleService.addSchedule(scheduleDTO);
         return "Inserted";
     }
-
+*/
 }

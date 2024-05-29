@@ -10,7 +10,7 @@ import com.uep.wap.service.DataService;
 @RequestMapping(path = "/api")
 public class DataController {
 
-    private final DataService dataService;
+    /*private final DataService dataService;
 
     public Data(DataService dataService) {
         this.dataService = dataService;
@@ -25,5 +25,5 @@ public class DataController {
     public String addData(@RequestBody DataDTO dataDTO){
         dataService.addData(dataDTO);
         return "Inserted";
-    }
+    }*/
 }

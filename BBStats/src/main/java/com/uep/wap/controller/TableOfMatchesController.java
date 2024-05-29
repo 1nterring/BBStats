@@ -16,7 +16,7 @@ public class TableOfMatchesController {
         this.tableOfMatchesService = tableOfMatchesService;
     }
 
-    @GetMapping(path = "/tablesOfMatches")
+    /*@GetMapping(path = "/tablesOfMatches")
     public Iterable<TableOfMatches> getAllTablesOfMatches(){
         return tableOfMatchesService.getAllTablesOfMatches();
     }
@@ -25,6 +25,6 @@ public class TableOfMatchesController {
     public String addTableOfMatches(@RequestBody TableOfMatchesDTO tableOfMatchesDTO){
         tableOfMatchesService.addTableOfMatches(tableOfMatchesDTO);
         return "Inserted";
-    }
+    }*/
 
 }

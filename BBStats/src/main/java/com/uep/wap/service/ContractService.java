@@ -13,16 +13,15 @@ public class ContractService {
     @Autowired
     private ContractRepository contractRepository;
     
-   /*  public void addContract(ContractDTO contractDTO) {
+   public void addContract(ContractDTO contractDTO) {
         Contract contract = new Contract();
-        contract.setFirstName(contractDTO.getFirstName());
-        contract.setLastName(contractDTO.getLastName());
+        contract.setExpiryDate(contractDTO.getExpiryDate());
         contractRepository.save(contract);
         System.out.println("Contract signed");
     }
 
-    public Iterable<Contract> getAllManagers() {
+    public Iterable<Contract> getAllContracts() {
         return contractRepository.findAll();
     }    
-*/
+
 }

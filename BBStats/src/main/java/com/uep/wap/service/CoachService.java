@@ -17,7 +17,6 @@ public class CoachService {
         Coach coach = new Coach();
         coach.setFirstName(coachDTO.getFirstName());
         coach.setLastName(coachDTO.getLastName());
-        coach.setTeam(coachDTO.getTeam());
         coach.setDateOfBirth(coachDTO.getDateOfBirth());
         coachRepository.save(coach);
         System.out.println("New Coach");

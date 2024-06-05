@@ -12,8 +12,8 @@ public class Coach {
     private String lastName;
     private Timestamp dateOfBirth;
 
-    @ManyToOne
-    @JoinColumn(name = "team_id")
+    @OneToOne
+    @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Team team;
 
     // Getters and Setters

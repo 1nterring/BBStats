@@ -29,12 +29,4 @@ public class CoachDTO {
     public String getLastName() {
         return lastName;
     }
-        public Team getTeam() {
-        return team;
-    }
-
-    public void setTeam(Team team) {
-        this.team = team;
-    }
-
 }

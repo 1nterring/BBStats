@@ -3,6 +3,7 @@ package com.uep.wap.model;
 import java.sql.Timestamp; // Correct import
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,14 +16,22 @@ import javax.persistence.OneToOne;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id; // changed to lowercase
-
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
+    @Column(name = "dateOfBirth")
     private Timestamp dateOfBirth;
+    @Column(name = "weight")
     private Float weight;
+    @Column(name = "height")
     private Float height;
+    @Column(name = "wingspan")
     private Float wingspan;
+    @Column(name = "salary")
+    private Float salary;
 
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL)
     private Contract contract;
@@ -37,10 +46,13 @@ public class Player {
 
     @ManyToOne
     private Injury injury;
-
-    private Float salary;
+    
 
     // Getters and setters
+    public Player() {
+
+    }
+
     public String getFirstName() {
         return firstName;
     }
@@ -89,4 +101,11 @@ public class Player {
         this.wingspan = wingspan;
     }
 
+    public Float getSalary() {
+        return salary;
+    }
+
+    public void setSalary(Float salary) {
+        this.salary = salary;
+    }
 }

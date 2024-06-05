@@ -22,6 +22,7 @@ public class PlayerService {
         player.setWeight(playerDTO.getWeight());
         player.setHeight(playerDTO.getHeight());
         player.setWingspan(playerDTO.getWingspan());
+        player.setSalary(playerDTO.getSalary());
         playerRepository.save(player);
         System.out.println("NEW PLAYER HAS COME TO MARKET!");
     }

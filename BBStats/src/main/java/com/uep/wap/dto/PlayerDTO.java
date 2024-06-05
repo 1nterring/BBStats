@@ -3,6 +3,21 @@ package com.uep.wap.dto;
 import java.sql.Timestamp;
 
 public class PlayerDTO {
+    private String firstName;
+    private String lastName;
+    private Timestamp dateOfBirth;
+    private Float weight;
+    private Float height;
+    private Float wingspan;
+    private Float salary;
+
+        public Float getSalary() {
+            return salary;
+        }
+
+        public void setSalary(Float salary) {
+            this.salary = salary;
+        }
 
         public String getFirstName() {
             return firstName;
@@ -52,11 +67,6 @@ public class PlayerDTO {
             this.wingspan = wingspan;
         }
 
-        private String firstName;
-        private String lastName;
-        private Timestamp dateOfBirth;
-        private Float weight;
-        private Float height;
-        private Float wingspan;
+
 
 }

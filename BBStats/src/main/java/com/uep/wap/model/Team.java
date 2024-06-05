@@ -16,7 +16,7 @@ public class Team {
 
     @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
     private Manager manager; // Assuming there is a Manager class with a 'team' field
-    @ManyToOne // Changed from @OneToOne
+    @OneToOne // Changed from @OneToOne
     @JoinColumn(name = "coach_id") // Assuming coach_id is the foreign key column in the Team table
     private Coach coach;
     // Getters and Setters

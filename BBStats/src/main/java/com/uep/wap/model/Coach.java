@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Use 'id' instead of 'Id' for naming consistency
+    private Long id; 
 
     private String firstName;
     private String lastName;
@@ -15,8 +15,6 @@ public class Coach {
     @OneToOne
     @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Team team;
-
-    // Getters and Setters
 
     public Long getId() {
         return id;

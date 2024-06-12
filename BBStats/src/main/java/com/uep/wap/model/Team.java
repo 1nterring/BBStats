@@ -7,19 +7,18 @@ import javax.persistence.*;
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; // Use 'id' instead of 'Id' for naming consistency
+    private Long id; 
 
     private String name;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
-    private List<Player> players; // Assuming there is a Player class with a 'team' field
+    private List<Player> players;
 
     @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
-    private Manager manager; // Assuming there is a Manager class with a 'team' field
-    @OneToOne // Changed from @OneToOne
-    @JoinColumn(name = "coach_id") // Assuming coach_id is the foreign key column in the Team table
+    private Manager manager; 
+    @OneToOne 
+    @JoinColumn(name = "coach_id") 
     private Coach coach;
-    // Getters and Setters
 
     public Long getId() {
         return id;

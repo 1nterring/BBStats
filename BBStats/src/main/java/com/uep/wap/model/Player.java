@@ -17,7 +17,7 @@ public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id; // changed to lowercase
+    private Long id;
     @Column(name = "firstName")
     private String firstName;
     @Column(name = "lastName")
@@ -47,8 +47,6 @@ public class Player {
     @ManyToOne
     private Injury injury;
     
-
-    // Getters and setters
     public Player() {
 
     }

@@ -13,16 +13,14 @@ public class TableOfMatchesService {
     @Autowired
     private TableOfMatchesRepository tableOfMatchesRepository;
     
-    // public void addTableOfMatches(TableOfMatchesDTO tableOfMatchesDTO) {
-    //     TableOfMatches tableOfMatches = new TableOfMatches();
-    //     tableOfMatches.setFirstName(tableOfMatchesDTO.getFirstName());
-    //     tableOfMatches.setLastName(tableOfMatchesDTO.getLastName());
-    //     tableOfMatchesRepository.save(tableOfMatches);
-    //     System.out.println("Actual Table");
-    // }
+    public void addTableOfMatches(TableOfMatchesDTO tableOfMatchesDTO) {
+        TableOfMatches tableOfMatches = new TableOfMatches();
+        tableOfMatches.setTeams(tableOfMatchesDTO.getTeams());
+        System.out.println("Actual Table");
+    }
 
-    // public Iterable<TableOfMatches> getTable() {
-    //     return tableOfMatchesRepository.findAll();
-    // }    
+    public Iterable<TableOfMatches> getTable() {
+        return tableOfMatchesRepository.findAll();
+     }    
 
 }

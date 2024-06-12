@@ -13,16 +13,15 @@ public class ScheduleService {
     @Autowired
     private ScheduleRepository scheduleRepository;
     
-    // public void addSchedule(ScheduleDTO scheduleDTO) {
-    //     Schedule schedule = new Schedule();
-    //     schedule.setFirstName(scheduleDTO.getFirstName());
-    //     schedule.setLastName(scheduleDTO.getLastName());
-    //     scheduleRepository.save(schedule);
-    //     System.out.println("New Manager incoming");
-    // }
+    public void addSchedule(ScheduleDTO scheduleDTO) {
+         Schedule schedule = new Schedule();
+         schedule.setDateOfMatch(scheduleDTO.getDateOfMatch());
+        scheduleRepository.save(schedule);
+        System.out.println("New Date Of Match");
+     }
 
-    // public Iterable<Schedule> getAllSchedules() {
-    //     return scheduleRepository.findAll();
-    // }    
+    public Iterable<Schedule> getAllSchedules() {
+        return scheduleRepository.findAll();
+     }    
 
 }

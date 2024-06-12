@@ -4,6 +4,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.TableOfMatches;
 
 @Repository
-public interface TableOfMatchesRepository extends CrudRepository<TableOfMatches,Integer> {
+public interface TableOfMatchesRepository extends CrudRepository<TableOfMatches,Long> {
 
 }

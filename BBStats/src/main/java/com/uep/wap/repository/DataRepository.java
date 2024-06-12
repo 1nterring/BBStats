@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Data;
 
 @Repository
-public interface DataRepository extends CrudRepository<Data,Integer> {
+public interface DataRepository extends CrudRepository<Data,Long> {
 
 }

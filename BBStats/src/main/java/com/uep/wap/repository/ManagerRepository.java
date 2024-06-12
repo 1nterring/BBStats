@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Manager;
 
 @Repository
-public interface ManagerRepository extends CrudRepository<Manager,Integer> {
+public interface ManagerRepository extends CrudRepository<Manager,Long> {
 
 }

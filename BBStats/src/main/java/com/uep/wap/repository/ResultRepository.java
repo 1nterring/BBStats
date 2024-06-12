@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Result;
 
 @Repository
-public interface ResultRepository extends CrudRepository<Result,Integer> {
+public interface ResultRepository extends CrudRepository<Result,Long> {
 
 }

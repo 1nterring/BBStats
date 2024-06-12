@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Coach;
 
 @Repository
-public interface CoachRepository extends CrudRepository<Coach,Integer> {
+public interface CoachRepository extends CrudRepository<Coach,Long> {
 
 }

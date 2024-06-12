@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Team;
 
 @Repository
-public interface TeamRepository extends CrudRepository<Team,Integer> {
+public interface TeamRepository extends CrudRepository<Team,Long> {
 
 }

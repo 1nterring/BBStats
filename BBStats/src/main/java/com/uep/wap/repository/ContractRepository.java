@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Contract;
 
 @Repository
-public interface ContractRepository extends CrudRepository<Contract,Integer> {
+public interface ContractRepository extends CrudRepository<Contract,Long> {
 
 }

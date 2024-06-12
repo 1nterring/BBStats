@@ -1,6 +1,6 @@
 package com.uep.wap.model;
 
-import java.sql.Timestamp; // Correct import
+import java.sql.Timestamp;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;

@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Game;
 
 @Repository
-public interface GameRepository extends CrudRepository<Game,Integer> {
+public interface GameRepository extends CrudRepository<Game,Long> {
 
 }

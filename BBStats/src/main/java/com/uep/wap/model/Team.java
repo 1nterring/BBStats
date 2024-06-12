@@ -14,6 +14,10 @@ public class Team {
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
     private List<Player> players;
 
+    @ManyToOne
+    @JoinColumn(name = "table_of_matches_id")
+    private TableOfMatches tableOfMatches;
+    
     @OneToOne(mappedBy = "team", cascade = CascadeType.ALL)
     private Manager manager; 
     @OneToOne 

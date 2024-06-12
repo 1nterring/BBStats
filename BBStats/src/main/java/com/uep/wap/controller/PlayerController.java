@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.PlayerDTO;
@@ -31,5 +32,9 @@ public class PlayerController {
         playerService.addPlayer(playerDTO);
         return "Inserted";
     }
-
+    @PutMapping("/player/{id}")
+    public ResponseEntity<Player> updatePlayer(@PathVariable Long id, @RequestBody PlayerDTO playerDTO) {
+        Player updatedPlayer = playerService.updatePlayer(id, playerDTO);
+        return ResponseEntity.ok(updatedPlayer);
+    }
 }

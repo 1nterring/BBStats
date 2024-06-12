@@ -5,6 +5,6 @@ import org.springframework.stereotype.Repository;
 import com.uep.wap.model.Schedule;
 
 @Repository
-public interface ScheduleRepository extends CrudRepository<Schedule,Integer> {
+public interface ScheduleRepository extends CrudRepository<Schedule,Long> {
 
 }

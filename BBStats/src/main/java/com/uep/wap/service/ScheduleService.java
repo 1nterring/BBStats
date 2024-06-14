@@ -7,6 +7,8 @@ import com.uep.wap.dto.ScheduleDTO;
 import com.uep.wap.model.Schedule;
 import com.uep.wap.repository.ScheduleRepository;
 
+import java.util.Optional;
+
 @Service
 public class ScheduleService {
 
@@ -22,6 +24,17 @@ public class ScheduleService {
 
     public Iterable<Schedule> getAllSchedules() {
         return scheduleRepository.findAll();
-     }    
+     }
+    public Schedule updateSchedule(Long id, ScheduleDTO scheduleDTO) {
+        Optional<Schedule> optionalSchedule = scheduleRepository.findById(id);
+        if (optionalSchedule.isPresent()) {
+            Schedule schedule = optionalSchedule.get();
 
+            schedule.setDateOfMatch(scheduleDTO.getDateOfMatch());
+
+            return scheduleRepository.save(schedule);
+        } else {
+            throw new RuntimeException("Schedule not found");
+        }
+    }
 }

@@ -6,9 +6,11 @@ import javax.persistence.*;
 public class Manager {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id; 
-
+    @Column
     private String firstName;
+    @Column
     private String lastName;
 
     @OneToOne

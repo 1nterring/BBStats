@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.DataDTO;
@@ -10,9 +13,9 @@ import com.uep.wap.service.DataService;
 @RequestMapping(path = "/api")
 public class DataController {
 
-    /*private final DataService dataService;
+    private final DataService dataService;
 
-    public Data(DataService dataService) {
+    public DataController(DataService dataService) {
         this.dataService = dataService;
     }
 
@@ -25,5 +28,10 @@ public class DataController {
     public String addData(@RequestBody DataDTO dataDTO){
         dataService.addData(dataDTO);
         return "Inserted";
-    }*/
+    }
+    @PutMapping("/data/{id}")
+    public ResponseEntity<Data> updateData(@PathVariable Long id, @RequestBody DataDTO dataDTO) {
+        Data updatedData = dataService.updateData(id, dataDTO);
+        return ResponseEntity.ok(updatedData);
+    }
 }

@@ -7,12 +7,17 @@ import javax.persistence.*;
 public class Schedule {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long Id;
-     private Timestamp dateOfMatch;
+    @Column
+    private Timestamp dateOfMatch;
     @ManyToOne
     @JoinColumn(name = "data_id")
     @OneToMany(mappedBy = "schedule", cascade = CascadeType.ALL)
     private Schedule schedule;
+    public Schedule() {
+
+    }
     public Long getId() {
         return Id;
     }

@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.TableOfMatchesDTO;
@@ -16,7 +17,7 @@ public class TableOfMatchesController {
         this.tableOfMatchesService = tableOfMatchesService;
     }
 
-    /*@GetMapping(path = "/tablesOfMatches")
+    @GetMapping(path = "/tablesOfMatches")
     public Iterable<TableOfMatches> getAllTablesOfMatches(){
         return tableOfMatchesService.getAllTablesOfMatches();
     }
@@ -25,6 +26,11 @@ public class TableOfMatchesController {
     public String addTableOfMatches(@RequestBody TableOfMatchesDTO tableOfMatchesDTO){
         tableOfMatchesService.addTableOfMatches(tableOfMatchesDTO);
         return "Inserted";
-    }*/
+    }
+    @PutMapping("/tableOfMatches/{id}")
+    public ResponseEntity<TableOfMatches> updateTableOfMatches(@PathVariable Long id, @RequestBody TableOfMatchesDTO tableOfMatchesDTO) {
+        TableOfMatches updatedTableOfMatches = tableOfMatchesService.updateTableOfMatches(id, tableOfMatchesDTO);
+        return ResponseEntity.ok(updatedTableOfMatches);
+    }
 
 }

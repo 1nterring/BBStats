@@ -2,19 +2,27 @@ package com.uep.wap.model;
 import javax.persistence.*;
 import java.sql.Timestamp;
 
+
 @Entity
 public class Coach {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id; 
-
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "firstName")
     private String firstName;
+    @Column(name = "lastName")
     private String lastName;
+    @Column(name = "dateOfBirth")
     private Timestamp dateOfBirth;
 
     @OneToOne
     @JoinColumn(name = "team_id", referencedColumnName = "id")
     private Team team;
+
+    public Coach() {
+
+    }
 
     public Long getId() {
         return id;

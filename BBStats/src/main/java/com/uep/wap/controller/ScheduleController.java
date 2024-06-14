@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.ScheduleDTO;
@@ -16,7 +19,7 @@ public class ScheduleController {
         this.scheduleService = scheduleService;
     }
 
-   /* @GetMapping(path = "/schedules")
+    @GetMapping(path = "/schedules")
     public Iterable<Schedule> getAllSchedules(){
         return scheduleService.getAllSchedules();
     }
@@ -26,5 +29,9 @@ public class ScheduleController {
         scheduleService.addSchedule(scheduleDTO);
         return "Inserted";
     }
-*/
+    @PutMapping("/schedule/{id}")
+    public ResponseEntity<Schedule> updateSchedule(@PathVariable Long id, @RequestBody ScheduleDTO scheduleDTO) {
+        Schedule updatedSchedule = scheduleService.updateSchedule(id, scheduleDTO);
+        return ResponseEntity.ok(updatedSchedule);
+    }
 }

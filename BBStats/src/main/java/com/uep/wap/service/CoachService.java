@@ -7,6 +7,8 @@ import com.uep.wap.dto.CoachDTO;
 import com.uep.wap.model.Coach;
 import com.uep.wap.repository.CoachRepository;
 
+import java.util.Optional;
+
 @Service
 public class CoachService {
 
@@ -24,6 +26,19 @@ public class CoachService {
 
     public Iterable<Coach> getAllCoaches() {
         return coachRepository.findAll();
-    }    
+    }
+    public Coach updateCoach(Long id, CoachDTO coachDTO) {
+        Optional<Coach> optionalCoach = coachRepository.findById(id);
+        if (optionalCoach.isPresent()) {
+            Coach coach = optionalCoach.get();
 
+            coach.setFirstName(coachDTO.getFirstName());
+            coach.setLastName(coachDTO.getLastName());
+            coach.setDateOfBirth(coachDTO.getDateOfBirth());
+
+            return coachRepository.save(coach);
+        } else {
+            throw new RuntimeException("Coach not found");
+        }
+    }
 }

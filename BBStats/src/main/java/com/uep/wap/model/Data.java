@@ -11,12 +11,16 @@ import javax.persistence.*;
 public class Data {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long Id;
     @ManyToOne
     @JoinColumn(name = "statistican_id")
     private Statistician statistician;
-    @OneToMany(mappedBy = "data", cascade = CascadeType.ALL)
+    //@OneToMany(mappedBy = "data", cascade = CascadeType.ALL)
 
+    public Data(){
+
+    }
     public Long getId() {
         return Id;
     }

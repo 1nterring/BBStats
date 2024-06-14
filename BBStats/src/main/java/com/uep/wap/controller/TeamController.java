@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.TeamDTO;
@@ -28,6 +31,11 @@ public class TeamController {
     public String addTeam(@RequestBody TeamDTO teamDTO){
         teamService.addTeam(teamDTO);
         return "Inserted";
+    }
+    @PutMapping("/team/{id}")
+    public ResponseEntity<Team> updateTeam(@PathVariable Long id, @RequestBody TeamDTO teamDTO) {
+        Team updatedTeam = teamService.updateTeam(id, teamDTO);
+        return ResponseEntity.ok(updatedTeam);
     }
 
 }

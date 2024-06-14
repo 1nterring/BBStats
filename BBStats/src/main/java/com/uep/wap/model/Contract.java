@@ -7,7 +7,9 @@ import javax.persistence.*;
 public class Contract {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
+    @Column
     private Timestamp expiryDate;
     @ManyToOne
     @JoinColumn(name= "manager_id")

@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.ManagerDTO;
@@ -25,6 +28,11 @@ public class ManagerController {
     public String addManager(@RequestBody ManagerDTO managerDTO){
         managerService.addManager(managerDTO);
         return "Inserted";
+    }
+    @PutMapping("/manager/{id}")
+    public ResponseEntity<Manager> updateManager(@PathVariable Long id, @RequestBody ManagerDTO managerDTO) {
+        Manager updatedManager = managerService.updateManager(id, managerDTO);
+        return ResponseEntity.ok(updatedManager);
     }
 
 }

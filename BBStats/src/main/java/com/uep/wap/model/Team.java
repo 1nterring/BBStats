@@ -7,8 +7,9 @@ import javax.persistence.*;
 public class Team {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id; 
-
+    @Column
     private String name;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
@@ -23,7 +24,9 @@ public class Team {
     @OneToOne 
     @JoinColumn(name = "coach_id") 
     private Coach coach;
+    public Team() {
 
+    }
     public Long getId() {
         return id;
     }

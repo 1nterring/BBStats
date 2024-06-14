@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.ContractDTO;
@@ -25,6 +28,12 @@ public class ContractController {
     public String addContract(@RequestBody ContractDTO contractDTO){
         contractService.addContract(contractDTO);
         return "Inserted";
+    }
+
+    @PutMapping("/contract/{id}")
+    public ResponseEntity<Contract> updateContract(@PathVariable Long id, @RequestBody ContractDTO contractDTO) {
+        Contract updatedContract = contractService.updateContract(id, contractDTO);
+        return ResponseEntity.ok(updatedContract);
     }
 
 }

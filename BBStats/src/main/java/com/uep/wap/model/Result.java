@@ -11,13 +11,20 @@ import javax.persistence.*;
 public class Result {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long Id;
+    @Column
     private String winner;
+    @Column
     private Integer final_score;
     @ManyToOne
     @JoinColumn(name = "tableOfMatches_id")
     @OneToOne(mappedBy = "result", cascade = CascadeType.ALL)
     private Result result;
+
+    public Result() {
+
+    }
     public Integer getFinal_score() {
         return final_score;
     }

@@ -1,19 +1,13 @@
 package com.uep.wap.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.CascadeType;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class TableOfMatches {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
 
     @OneToMany(mappedBy = "tableOfMatches", cascade = CascadeType.ALL)
@@ -22,7 +16,9 @@ public class TableOfMatches {
     @ManyToOne
     @JoinColumn(name = "data_id")
     private Data data;
+    public TableOfMatches() {
 
+    }
     public Long getId() {
         return id;
     }

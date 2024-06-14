@@ -7,6 +7,8 @@ import com.uep.wap.dto.TableOfMatchesDTO;
 import com.uep.wap.model.TableOfMatches;
 import com.uep.wap.repository.TableOfMatchesRepository;
 
+import java.util.Optional;
+
 @Service
 public class TableOfMatchesService {
 
@@ -19,8 +21,18 @@ public class TableOfMatchesService {
         System.out.println("Actual Table");
     }
 
-    public Iterable<TableOfMatches> getTable() {
+    public Iterable<TableOfMatches> getAllTablesOfMatches() {
         return tableOfMatchesRepository.findAll();
-     }    
+     }
+    public TableOfMatches updateTableOfMatches(Long id, TableOfMatchesDTO tableOfMatchesDTO) {
+        Optional<TableOfMatches> optionalTableOfMatches = tableOfMatchesRepository.findById(id);
+        if (optionalTableOfMatches.isPresent()) {
+            TableOfMatches tableOfMatches = optionalTableOfMatches.get();
+
+            return tableOfMatchesRepository.save(tableOfMatches);
+        } else {
+            throw new RuntimeException("Table not found");
+        }
+    }
 
 }

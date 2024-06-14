@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.CoachDTO;
@@ -21,9 +22,15 @@ public class CoachController {
     }
 
     @PostMapping(path = "/coachAdd")
-    public String addPlayer(@RequestBody CoachDTO coachDTO){
+    public String addCoach(@RequestBody CoachDTO coachDTO){
         coachService.addCoach(coachDTO);
         return "Inserted";
+    }
+
+    @PutMapping("/coach/{id}")
+    public ResponseEntity<Coach> updateCoach(@PathVariable Long id, @RequestBody CoachDTO coachDTO) {
+        Coach updatedCoach = coachService.updateCoach(id, coachDTO);
+        return ResponseEntity.ok(updatedCoach);
     }
 
 }

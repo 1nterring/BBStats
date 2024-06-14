@@ -13,8 +13,11 @@ import javax.persistence.*;
 public class Game {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long Id;
+    @Column
     private Timestamp date;
+    @Column
     private String opponent;
     @ManyToOne
     @JoinColumn(name = "result_id")
@@ -37,6 +40,9 @@ public class Game {
     }
     public String getOpponent() {
         return opponent;
+    }
+    public Timestamp getData(){
+        return date;
     }
     public void setDate(Timestamp date) {
         this.date = date;

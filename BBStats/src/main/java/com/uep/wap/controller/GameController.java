@@ -1,5 +1,8 @@
 package com.uep.wap.controller;
 
+import com.uep.wap.dto.PlayerDTO;
+import com.uep.wap.model.Player;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.GameDTO;
@@ -25,6 +28,11 @@ public class GameController {
     public String addGame(@RequestBody GameDTO gameDTO){
         gameService.addGame(gameDTO);
         return "Inserted";
+    }
+    @PutMapping("/game/{id}")
+    public ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody GameDTO gameDTO) {
+        Game updatedGame = gameService.updateGame(id, gameDTO);
+        return ResponseEntity.ok(updatedGame);
     }
 
 }

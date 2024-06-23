@@ -39,4 +39,12 @@ public class ContractService {
             throw new RuntimeException("Contract not found");
         }
     }
+    public void deleteContract(Long id) {
+        if (contractRepository.existsById(id)) {
+            contractRepository.deleteById(id);
+            System.out.println("Contract " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Contract not found");
+        }
+    }
 }

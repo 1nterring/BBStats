@@ -41,5 +41,12 @@ public class ManagerService {
             throw new RuntimeException("Manager not found");
         }
     }
-
+    public void deleteManager(Long id) {
+        if (managerRepository.existsById(id)) {
+            managerRepository.deleteById(id);
+            System.out.println("Manager " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Manager not found");
+        }
+    }
 }

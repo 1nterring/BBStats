@@ -35,5 +35,12 @@ public class DataService {
             throw new RuntimeException("Data not found");
         }
     }
-
+    public void deleteData(Long id) {
+        if (dataRepository.existsById(id)) {
+            dataRepository.deleteById(id);
+            System.out.println("Data " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Data not found");
+        }
+    }
 }

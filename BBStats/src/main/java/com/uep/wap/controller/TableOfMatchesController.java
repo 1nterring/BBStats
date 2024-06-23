@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,10 +28,14 @@ public class TableOfMatchesController {
         tableOfMatchesService.addTableOfMatches(tableOfMatchesDTO);
         return "Inserted";
     }
-    @PutMapping("/tableOfMatches/{id}")
+    @PutMapping("/tableOfMatchesUpdate/{id}")
     public ResponseEntity<TableOfMatches> updateTableOfMatches(@PathVariable Long id, @RequestBody TableOfMatchesDTO tableOfMatchesDTO) {
         TableOfMatches updatedTableOfMatches = tableOfMatchesService.updateTableOfMatches(id, tableOfMatchesDTO);
         return ResponseEntity.ok(updatedTableOfMatches);
     }
-
+    @DeleteMapping("tableOfMatchesDelete/{id}")
+    public ResponseEntity<String> deleteTableOfMatches(@PathVariable Long id) {
+    tableOfMatchesService.deleteTableOfMatches(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Table deleted!");
+    }
 }

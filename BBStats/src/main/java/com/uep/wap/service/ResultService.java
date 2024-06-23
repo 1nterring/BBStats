@@ -41,5 +41,12 @@ public class ResultService {
             throw new RuntimeException("Result not found");
         }
     }
-
+    public void deleteResult(Long id) {
+        if (resultRepository.existsById(id)) {
+            resultRepository.deleteById(id);
+            System.out.println("Result " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Result not found");
+        }
+    }
 }

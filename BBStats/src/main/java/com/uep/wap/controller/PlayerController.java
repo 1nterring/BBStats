@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,9 +33,14 @@ public class PlayerController {
         playerService.addPlayer(playerDTO);
         return "Inserted";
     }
-    @PutMapping("/player/{id}")
+    @PutMapping("/playerUpdate/{id}")
     public ResponseEntity<Player> updatePlayer(@PathVariable Long id, @RequestBody PlayerDTO playerDTO) {
         Player updatedPlayer = playerService.updatePlayer(id, playerDTO);
         return ResponseEntity.ok(updatedPlayer);
+    }
+    @DeleteMapping("playerDelete/{id}")
+    public ResponseEntity<String> deletePlayer(@PathVariable Long id) {
+    playerService.deletePlayer(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Player deleted!");
     }
 }

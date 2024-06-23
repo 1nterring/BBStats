@@ -2,6 +2,8 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Player;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,9 +31,14 @@ public class ScheduleController {
         scheduleService.addSchedule(scheduleDTO);
         return "Inserted";
     }
-    @PutMapping("/schedule/{id}")
+    @PutMapping("/scheduleUpdate/{id}")
     public ResponseEntity<Schedule> updateSchedule(@PathVariable Long id, @RequestBody ScheduleDTO scheduleDTO) {
         Schedule updatedSchedule = scheduleService.updateSchedule(id, scheduleDTO);
         return ResponseEntity.ok(updatedSchedule);
+    }
+    @DeleteMapping("scheduleDelete/{id}")
+    public ResponseEntity<String> deleteSchedule(@PathVariable Long id) {
+    scheduleService.deleteSchedule(id);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Schedule deleted!");
     }
 }

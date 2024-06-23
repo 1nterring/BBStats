@@ -34,5 +34,12 @@ public class TableOfMatchesService {
             throw new RuntimeException("Table not found");
         }
     }
-
+    public void deleteTableOfMatches(Long id) {
+        if (tableOfMatchesRepository.existsById(id)) {
+            tableOfMatchesRepository.deleteById(id);
+            System.out.println("Table" + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Table not found");
+        }
+    }
 }

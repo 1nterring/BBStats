@@ -2,6 +2,8 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Player;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,10 +31,14 @@ public class GameController {
         gameService.addGame(gameDTO);
         return "Inserted";
     }
-    @PutMapping("/game/{id}")
+    @PutMapping("/gameUpdate/{id}")
     public ResponseEntity<Game> updateGame(@PathVariable Long id, @RequestBody GameDTO gameDTO) {
         Game updatedGame = gameService.updateGame(id, gameDTO);
         return ResponseEntity.ok(updatedGame);
     }
-
+    @DeleteMapping("gameDelete/{id}")
+    public ResponseEntity<String> deleteGame(@PathVariable Long id) {
+    gameService.deleteGame(id);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Game deleted!");
+    }
 }

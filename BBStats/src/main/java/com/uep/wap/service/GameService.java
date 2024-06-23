@@ -41,5 +41,12 @@ public class GameService {
             throw new RuntimeException("Game not found");
         }
     }
-
+    public void deleteGame(Long id) {
+        if (gameRepository.existsById(id)) {
+            gameRepository.deleteById(id);
+            System.out.println("Game " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Game not found");
+        }
+    }
 }

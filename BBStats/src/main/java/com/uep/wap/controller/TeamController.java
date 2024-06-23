@@ -2,14 +2,14 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Player;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.uep.wap.dto.TeamDTO;
 import com.uep.wap.model.Team;
 import com.uep.wap.service.TeamService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 @RestController
@@ -32,10 +32,14 @@ public class TeamController {
         teamService.addTeam(teamDTO);
         return "Inserted";
     }
-    @PutMapping("/team/{id}")
+    @PutMapping("/teamUpdate/{id}")
     public ResponseEntity<Team> updateTeam(@PathVariable Long id, @RequestBody TeamDTO teamDTO) {
         Team updatedTeam = teamService.updateTeam(id, teamDTO);
         return ResponseEntity.ok(updatedTeam);
     }
-
+    @DeleteMapping("teamrDelete/{id}")
+    public ResponseEntity<String> deleteTeam(@PathVariable Long id) {
+    teamService.deleteTeam(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Team deleted!");
+    }
 }

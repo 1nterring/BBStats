@@ -49,5 +49,12 @@ public class PlayerService {
             throw new RuntimeException("Player not found");
         }
     }
-
+    public void deletePlayer(Long id) {
+        if (playerRepository.existsById(id)) {
+            playerRepository.deleteById(id);
+            System.out.println("Player with id" + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Player not found");
+        }
+    }
 }

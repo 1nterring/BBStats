@@ -2,6 +2,8 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Player;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,10 +31,14 @@ public class ManagerController {
         managerService.addManager(managerDTO);
         return "Inserted";
     }
-    @PutMapping("/manager/{id}")
+    @PutMapping("/managerUpdate/{id}")
     public ResponseEntity<Manager> updateManager(@PathVariable Long id, @RequestBody ManagerDTO managerDTO) {
         Manager updatedManager = managerService.updateManager(id, managerDTO);
         return ResponseEntity.ok(updatedManager);
     }
-
+    @DeleteMapping("managerDelete/{id}")
+    public ResponseEntity<String> deleteManager(@PathVariable Long id) {
+    managerService.deleteManager(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Manager deleted!");
+    }
 }

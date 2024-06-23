@@ -39,4 +39,12 @@ public class TeamService {
             throw new RuntimeException("Team not found");
         }
     }
+    public void deleteTeam(Long id) {
+        if (teamRepository.existsById(id)) {
+            teamRepository.deleteById(id);
+            System.out.println("Team with id" + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Team not found");
+        }
+    }
 }

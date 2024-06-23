@@ -2,6 +2,8 @@ package com.uep.wap.controller;
 
 import com.uep.wap.dto.PlayerDTO;
 import com.uep.wap.model.Player;
+
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -29,10 +31,14 @@ public class ResultController {
         resultService.addResult(resultDTO);
         return "Inserted";
     }
-    @PutMapping("/result/{id}")
+    @PutMapping("/resultUpdate/{id}")
     public ResponseEntity<Result> updateResult(@PathVariable Long id, @RequestBody ResultDTO resultDTO) {
         Result updatedResult = resultService.updateResult(id, resultDTO);
         return ResponseEntity.ok(updatedResult);
     }
-
+    @DeleteMapping("resultDelete/{id}")
+    public ResponseEntity<String> deleteResult(@PathVariable Long id) {
+    resultService.deleteResult(id);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Result deleted!");
+    }
 }

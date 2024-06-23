@@ -1,5 +1,6 @@
 package com.uep.wap.controller;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,10 +28,14 @@ public class CoachController {
         return "Inserted";
     }
 
-    @PutMapping("/coach/{id}")
+    @PutMapping("/coachUpdate/{id}")
     public ResponseEntity<Coach> updateCoach(@PathVariable Long id, @RequestBody CoachDTO coachDTO) {
         Coach updatedCoach = coachService.updateCoach(id, coachDTO);
         return ResponseEntity.ok(updatedCoach);
     }
-
+    @DeleteMapping("coachDelete/{id}")
+    public ResponseEntity<String> deleteCoach(@PathVariable Long id) {
+    coachService.deleteCoach(id);
+    return ResponseEntity.status(HttpStatus.NO_CONTENT).body("Coach deleted!");
+    }
 }

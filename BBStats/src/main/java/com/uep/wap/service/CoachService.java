@@ -41,4 +41,12 @@ public class CoachService {
             throw new RuntimeException("Coach not found");
         }
     }
+    public void deleteCoach(Long id) {
+        if (coachRepository.existsById(id)) {
+            coachRepository.deleteById(id);
+            System.out.println("Coach " + id + " has been deleted.");
+        } else {
+            throw new RuntimeException("Coach not found");
+        }
+    }
 }
